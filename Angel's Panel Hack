@@ -1,0 +1,376 @@
+print("Angel's Panel: Loaded!")
+print("Thanks for using Angel's Panel!")
+print("Credits to LP_00O#1850")
+
+local player = game:GetService('Players').LocalPlayer
+local char = player.Character or player.CharacterAdded:Wait()
+local h = char:WaitForChild('Humanoid')
+
+local pgui = player:WaitForChild('PlayerGui')
+
+local screenGui = Instance.new('ScreenGui', pgui)
+screenGui.Name = 'angelsPanel'
+screenGui.IgnoreGuiInset = false
+screenGui.ResetOnSpawn = false
+local dragFrame = Instance.new('Frame', screenGui)
+dragFrame.Name='DragFrame'
+dragFrame.BackgroundColor3 = Color3.fromRGB(96, 178, 255)
+dragFrame.Position = UDim2.new(0.007, 0,0.529,0)
+dragFrame.Size=UDim2.new(0.317,0,0.016,0)
+
+local main = Instance.new('Frame', dragFrame)
+main.Name='Main'
+main.BackgroundColor3 = Color3.fromRGB(64, 121, 171)
+main.Position = UDim2.new(0.011,0,28.541,0)
+main.Size = UDim2.new(0.975,0,27.541,0)
+main.AnchorPoint = Vector2.new(0,1)
+
+local credits = Instance.new('TextLabel', main)
+credits.BackgroundTransparency = 1
+credits.Position = UDim2.new(0.031,0,0.852,0)
+credits.Size = UDim2.new(0.936,0,0.116,0)
+credits.Font = Enum.Font.GothamMedium
+credits.Text='Made by LP_00O#1850 |'
+credits.TextColor3 = Color3.fromRGB(25,25,25)
+credits.TextScaled = true
+
+local title = Instance.new('TextLabel', main)
+title.Name='Title'
+title.BackgroundTransparency=1
+title.Position = UDim2.new(0,0,-0,0)
+title.Size = UDim2.new(0.616,0,0.147,0)
+title.Font = Enum.Font.GothamBlack
+title.Text = "| Angel's Panel"
+title.TextColor3 = Color3.fromRGB(25,25,25)
+title.TextScaled = true
+
+local openButton = Instance.new('TextButton', dragFrame)
+openButton.Name = 'OpenButton'
+openButton.BackgroundColor3 = Color3.fromRGB(96,178,255)
+openButton.Position = UDim2.new(0.861,0,-3.091,0)
+openButton.Size = UDim2.new(0.137,0,2.545,0)
+openButton.Font = Enum.Font.GothamBlack
+openButton.Text = 'Open'
+openButton.TextColor3 = Color3.fromRGB(25,25,25)
+openButton.TextScaled=true
+openButton.Visible=false
+
+local close = Instance.new('TextButton', main)
+local disconnect = Instance.new('TextButton', main)
+local fly = Instance.new('TextButton', main)
+local infJump = Instance.new('TextButton', main)
+local jump = Instance.new('TextButton', main)
+local minimize = Instance.new('TextButton', main)
+local rejoin = Instance.new('TextButton', main)
+local reset = Instance.new('TextButton', main)
+local respawn = Instance.new('TextButton', main)
+local sit = Instance.new('TextButton', main)
+local speed = Instance.new('TextButton', main)
+
+local speedBox = Instance.new('TextBox', main)
+local jumpBox = Instance.new('TextBox', main)
+
+local c = {
+	buttonColor = Color3.fromRGB(96, 178, 255);
+	textColor = Color3.fromRGB(25,25,25);
+	buttonSize = UDim2.new(0.285,0,0.149)
+}
+
+close.Name = 'Close'
+close.BackgroundColor3 = c.buttonColor
+close.Position = UDim2.new(0.893,0,0.02,0)
+close.Size = UDim2.new(0.092,0,0.126,0)
+close.TextColor3 = c.textColor
+close.Font = Enum.Font.GothamBlack
+close.Text = 'X'
+close.TextScaled = true
+
+minimize.Name = 'Minimize'
+minimize.BackgroundColor3 = c.buttonColor
+minimize.Position = UDim2.new(0.78,0,0.02,0)
+minimize.Size = UDim2.new(0.092,0,0.126,0)
+minimize.TextColor3 = c.textColor
+minimize.Font = Enum.Font.GothamBlack
+minimize.Text='-'
+minimize.TextScaled = true
+
+disconnect.Name = 'Disconnect'
+disconnect.BackgroundColor3 = c.buttonColor
+disconnect.Position = UDim2.new(0.045,0,0.673,0)
+disconnect.Size = c.buttonSize
+disconnect.Font = Enum.Font.GothamBold
+disconnect.TextColor3 = c.textColor
+disconnect.Text = disconnect.Name
+disconnect.TextScaled = true
+
+fly.Name = 'Fly (F)'
+fly.BackgroundColor3 = c.buttonColor
+fly.Position = UDim2.new(0.045,0,0.485,0)
+fly.Size = c.buttonSize
+fly.TextColor3 = c.textColor
+fly.Font = Enum.Font.GothamBold
+fly.Text = fly.Name
+fly.TextScaled = true
+
+infJump.Name = 'InfJump'
+infJump.BackgroundColor3 = c.buttonColor
+infJump.Position = UDim2.new(0.358,0,0.485,0)
+infJump.Size = c.buttonSize
+infJump.Font = Enum.Font.GothamBold
+infJump.TextColor3 = c.textColor
+infJump.Text='Infinite Jump'
+infJump.TextScaled = true
+
+if h.UseJumpPower == true then
+	jump.Name='Jump'
+	jump.BackgroundColor3 = c.buttonColor
+	jump.Position = UDim2.new(0.358,0,0.328,0)
+	jump.Size = UDim2.new(0.285,0,0.122,0)
+	jump.TextColor3 = c.textColor
+	jump.Font = Enum.Font.GothamBold
+	jump.Text = 'Set Jump'
+	jump.TextScaled = true
+
+	jumpBox.Name='JumpBox'
+	jumpBox.BackgroundColor3 = c.buttonColor
+	jumpBox.Position = UDim2.new(0.356,0,0.191,0)
+	jumpBox.Size = UDim2.new(0.285,0,0.102,0)
+	jumpBox.Font = Enum.Font.GothamBold
+	jumpBox.PlaceholderColor3 = c.textColor
+	jumpBox.PlaceholderText = 'Default = 50'
+	jumpBox.Text = jumpBox.PlaceholderText
+	jumpBox.TextColor3 = c.textColor
+	jumpBox.TextSize = 14
+else
+	jump.Visible = false
+	jumpBox.Visible = false
+	
+	local disclaimer = Instance.new('Frame', main)
+	disclaimer.Name='Disclaimer'
+	disclaimer.Position = UDim2.new(0.34,0,0.172,0)
+	disclaimer.Size = UDim2.new(0.318,0,0.294,0)
+	disclaimer.BackgroundColor3 = Color3.fromRGB()
+	disclaimer.BackgroundTransparency = .3
+	local text = Instance.new('TextLabel', disclaimer)
+	text.BackgroundTransparency = 1
+	text.Position = UDim2.new(0,0,0,0)
+	text.Size = UDim2.new(1,0,1,0)
+	text.Font = Enum.Font.SourceSansBold
+	text.Text = "This game doesn't use the required jump power method therefore you can't edit your jump power. Sorry!"
+	text.TextColor3=Color3.fromRGB(96,178,255)
+	text.TextScaled=true
+end
+
+rejoin.Name='Rejoin'
+rejoin.BackgroundColor3 = c.buttonColor
+rejoin.Position=UDim2.new(0.682,0,0.485,0)
+rejoin.Size = c.buttonSize
+rejoin.Font = Enum.Font.GothamBold
+rejoin.TextColor3 = c.textColor
+rejoin.Text = rejoin.Name
+rejoin.TextScaled = true
+
+reset.Name = 'Reset'
+reset.BackgroundColor3 = c.buttonColor
+reset.Position = UDim2.new(0.682,0,0.191,0)
+reset.Size = UDim2.new(0.285,0,0.254,0)
+reset.TextColor3 = c.textColor
+reset.Text = reset.Name
+reset.Font = Enum.Font.GothamBold
+reset.TextScaled = true
+
+respawn.Name='Respawn'
+respawn.BackgroundColor3 = c.buttonColor
+respawn.Position=UDim2.new(0.682,0,0.673,0)
+respawn.Size = c.buttonSize
+respawn.TextColor3 = c.textColor
+respawn.Text = respawn.Name
+respawn.Font = Enum.Font.GothamBold
+respawn.TextScaled = true
+
+sit.Name='Sit'
+sit.BackgroundColor3 = c.buttonColor
+sit.Position=UDim2.new(0.358,0,0.673,0)
+sit.Size = c.buttonSize
+sit.TextColor3 = c.textColor
+sit.Text = sit.Name
+sit.Font = Enum.Font.GothamBold
+sit.TextScaled = true
+
+speed.Name='Speed'
+speed.BackgroundColor3=c.buttonColor
+speed.Position=UDim2.new(0.045,0,0.323,0)
+speed.Size = UDim2.new(0.285,0,0.122,0)
+speed.TextColor3 = c.textColor
+speed.Text = 'Set Speed'
+speed.Font = Enum.Font.GothamBold
+speed.TextScaled = true
+
+speedBox.Name = 'SpeedBox'
+speedBox.BackgroundColor3=c.buttonColor
+speedBox.Position=UDim2.new(0.045,0,0.191,0)
+speedBox.Size = UDim2.new(0.285,0,0.102,0)
+speedBox.Font = Enum.Font.GothamBold
+speedBox.PlaceholderColor3 = c.textColor
+speedBox.PlaceholderText='Default = 16'
+speedBox.Text = speedBox.PlaceholderText
+speedBox.TextColor3 = c.textColor
+speedBox.TextSize = 14
+
+for uiCount, ui in pairs(screenGui:GetDescendants()) do
+	if ui:IsA('TextLabel') or ui:IsA('TextButton') or ui:IsA('Frame') or ui:IsA('TextBox') then
+		Instance.new('UICorner', ui)
+	end
+end
+
+minimize.MouseButton1Click:Connect(function()
+	main:TweenSize(UDim2.new(0.975,0,0,0),Enum.EasingDirection.In,Enum.EasingStyle.Sine,.4)
+	main:TweenPosition(UDim2.new(0.011,0,1,0),Enum.EasingDirection.In,Enum.EasingStyle.Sine,.4)
+	openButton.Visible = true
+end)
+
+openButton.MouseButton1Click:Connect(function()
+	openButton.Visible = false
+	main:TweenSize(UDim2.new(0.975,0,27.541,0),Enum.EasingDirection.Out,Enum.EasingStyle.Sine,.4)
+	main:TweenPosition(UDim2.new(0.011,0,28.541,0),Enum.EasingDirection.In,Enum.EasingStyle.Sine,.4)
+end)
+
+close.MouseButton1Click:Connect(function()
+	screenGui:Destroy()
+end)
+
+speed.MouseButton1Click:Connect(function()
+	h.WalkSpeed = tonumber(speedBox.Text)
+end)
+
+jump.MouseButton1Click:Connect(function()
+	h.JumpPower = tonumber(jumpBox.Text)
+end)
+
+reset.MouseButton1Click:Connect(function()
+	h.Health = 0
+end)
+
+local flying = false
+local flyKey = false
+local infJumpEnabled = false
+
+local ctrl = {f = 0, b = 0, l = 0, r = 0} 
+local lastctrl = {f = 0, b = 0, l = 0, r = 0} 
+local maxspeed = 400 
+local Speed = 5000
+local torso = char.Head
+
+function Fly() 
+	local bg = Instance.new("BodyGyro", torso) 
+	bg.P = 9e4 
+	bg.maxTorque = Vector3.new(9e9, 9e9, 9e9) 
+	bg.cframe = torso.CFrame 
+	local bv = Instance.new("BodyVelocity", torso) 
+	bv.velocity = Vector3.new(0,0.1,0) 
+	bv.maxForce = Vector3.new(9e9, 9e9, 9e9) 
+	repeat wait() 
+		player.Character.Humanoid.PlatformStand = true 
+		if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then 
+			Speed = Speed+.5+(Speed/maxspeed) 
+			if Speed > maxspeed then 
+				Speed = maxspeed 
+			end 
+		elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and Speed ~= 0 then 
+			Speed = Speed-1 
+			if Speed < 0 then 
+				Speed = 0 
+			end 
+		end 
+		if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then 
+			bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*Speed 
+			lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r} 
+		elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and Speed ~= 0 then 
+			bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*Speed 
+		else 
+			bv.velocity = Vector3.new(0,0.1,0) 
+		end 
+		bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*Speed/maxspeed),0,0) 
+	until not flying 
+	ctrl = {f = 0, b = 0, l = 0, r = 0} 
+	lastctrl = {f = 0, b = 0, l = 0, r = 0} 
+	Speed = 0 
+	bg:Destroy() 
+	bv:Destroy() 
+	player.Character.Humanoid.PlatformStand = false 
+end 
+
+local mouse = player:GetMouse()
+
+mouse.KeyDown:Connect(function(key)
+	if flyKey == true then
+		if key:lower() == "f" then 
+			if flying then flying = false 
+			else 
+				flying = true 
+				Fly() 
+			end 
+		elseif key:lower() == "w" then 
+			ctrl.f = 1 
+		elseif key:lower() == "s" then 
+			ctrl.b = -1 
+		elseif key:lower() == "a" then 
+			ctrl.l = -1 
+		elseif key:lower() == "d" then 
+			ctrl.r = 1 
+		end 
+	end
+end)
+
+mouse.KeyUp:Connect(function(key)
+	if key:lower() == "w" then 
+		ctrl.f = 0 
+	elseif key:lower() == "s" then 
+		ctrl.b = 0 
+	elseif key:lower() == "a" then 
+		ctrl.l = 0 
+	elseif key:lower() == "d" then 
+		ctrl.r = 0 
+	end 
+end)
+
+Fly()
+
+fly.MouseButton1Click:Connect(function()
+	flyKey = true
+	flying = not flying
+	Fly(flying)
+end)
+
+infJump.MouseButton1Click:Connect(function()
+	if infJumpEnabled == false then
+		infJumpEnabled = true
+	end
+end)
+
+game:GetService('UserInputService').InputBegan:Connect(function(i_obj,gp)
+	if not gp then
+		if i_obj.KeyCode == Enum.KeyCode.Space then
+			if infJumpEnabled == true then
+				h:ChangeState(Enum.HumanoidStateType.Jumping)
+			end
+		end
+	end
+end)
+
+rejoin.MouseButton1Click:Connect(function()
+	local tps = game:GetService('TeleportService')
+	tps:Teleport(game.PlaceId, player)
+end)
+
+disconnect.MouseButton1Click:Connect(function()
+	player:Kick('You clicked disconnect.')
+end)
+
+sit.MouseButton1Click:Connect(function()
+	h.Sit = true
+end)
+
+respawn.MouseButton1Click:Connect(function()
+	h.Health = 0
+end)
