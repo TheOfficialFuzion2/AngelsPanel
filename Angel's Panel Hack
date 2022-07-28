@@ -144,7 +144,7 @@ if h.UseJumpPower == true then
 else
 	jump.Visible = false
 	jumpBox.Visible = false
-	
+
 	local disclaimer = Instance.new('Frame', main)
 	disclaimer.Name='Disclaimer'
 	disclaimer.Position = UDim2.new(0.34,0,0.172,0)
@@ -226,13 +226,17 @@ end
 minimize.MouseButton1Click:Connect(function()
 	main:TweenSize(UDim2.new(0.975,0,0,0),Enum.EasingDirection.In,Enum.EasingStyle.Sine,.4)
 	main:TweenPosition(UDim2.new(0.011,0,1,0),Enum.EasingDirection.In,Enum.EasingStyle.Sine,.4)
+	dragFrame:TweenPosition(UDim2.new(0.007,0,0.97,0),Enum.EasingDirection.In,Enum.EasingStyle.Sine,.4)
 	openButton.Visible = true
+	main.Visible = false
 end)
 
 openButton.MouseButton1Click:Connect(function()
 	openButton.Visible = false
+	main.Visible=true
 	main:TweenSize(UDim2.new(0.975,0,27.541,0),Enum.EasingDirection.Out,Enum.EasingStyle.Sine,.4)
-	main:TweenPosition(UDim2.new(0.011,0,28.541,0),Enum.EasingDirection.In,Enum.EasingStyle.Sine,.4)
+	main:TweenPosition(UDim2.new(0.011,0,28.541,0),Enum.EasingDirection.Out,Enum.EasingStyle.Sine,.4)
+	dragFrame:TweenPosition(UDim2.new(0.007,0,0.529,0),Enum.EasingDirection.Out,Enum.EasingStyle.Sine,.4)
 end)
 
 close.MouseButton1Click:Connect(function()
@@ -240,11 +244,19 @@ close.MouseButton1Click:Connect(function()
 end)
 
 speed.MouseButton1Click:Connect(function()
-	h.WalkSpeed = tonumber(speedBox.Text)
+	spawn(function()
+		while wait() do
+			h.WalkSpeed = tonumber(speedBox.Text)
+		end
+	end)
 end)
 
 jump.MouseButton1Click:Connect(function()
-	h.JumpPower = tonumber(jumpBox.Text)
+	spawn(function()
+		while wait() do
+			h.JumpPower = tonumber(jumpBox.Text)
+		end
+	end)
 end)
 
 reset.MouseButton1Click:Connect(function()
