@@ -1,6 +1,6 @@
 print("Angel's Panel: Loaded!")
 print("Thanks for using Angel's Panel!")
-print("Credits to LP_00O#1850")
+print("Credits to ZEDD#1850")
 
 local player = game:GetService('Players').LocalPlayer
 local char = player.Character or player.CharacterAdded:Wait()
@@ -30,7 +30,7 @@ credits.BackgroundTransparency = 1
 credits.Position = UDim2.new(0.031,0,0.852,0)
 credits.Size = UDim2.new(0.936,0,0.116,0)
 credits.Font = Enum.Font.GothamMedium
-credits.Text='Made by LP_00O#1850 |'
+credits.Text='Made by ZEDD#1850 |'
 credits.TextColor3 = Color3.fromRGB(25,25,25)
 credits.TextScaled = true
 
@@ -40,7 +40,7 @@ title.BackgroundTransparency=1
 title.Position = UDim2.new(0,0,-0,0)
 title.Size = UDim2.new(0.616,0,0.147,0)
 title.Font = Enum.Font.GothamBlack
-title.Text = "| Angel's Panel"
+title.Text = "| Fuzion's Panel"
 title.TextColor3 = Color3.fromRGB(25,25,25)
 title.TextScaled = true
 
